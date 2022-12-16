@@ -21,18 +21,18 @@ echo ----------------------------------------------------------
 echo
 
 ### Flash the SKR 3 via USB...
-echo "Start processing for the Spider v2.2..."
+echo "Start processing for the SKR3..."
 make clean KCONFIG_CONFIG=config.skr3
 make menuconfig KCONFIG_CONFIG=config.skr3
 make -j4 KCONFIG_CONFIG=config.skr3
-make flash KCONFIG_CONFIG=config.skr3 FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32f446xx_440025001450325635393320-if00
+make flash KCONFIG_CONFIG=config.skr3 FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32h743xx_270028001951303130373234-if00
 
-# Sometimes the Spider22 is stuck in DFU mode...
+# Sometimes the SKR3 is stuck in DFU mode...
 if [ $? -eq 0 ]; then
-   echo "*** Successfully flashed Spider v2.2"
+   echo "*** Successfully flashed SKR3"
 else
    echo "*** Unable to flash via serial path, attempting via USB device ID..."
-   make flash KCONFIG_CONFIG=config.octopus FLASH_DEVICE=0483:df11
+   make flash KCONFIG_CONFIG=config.skr3 FLASH_DEVICE=0483:df11
 fi
 
 echo
