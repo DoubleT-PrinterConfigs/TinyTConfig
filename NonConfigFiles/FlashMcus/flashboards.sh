@@ -40,11 +40,11 @@ echo ----------------------------------------------------------
 echo
 
 ### Flash the SB2040 via CAN Boot...
-#echo "Start processing for the SB2040..."
-#make clean KCONFIG_CONFIG=config.sb2040
-#make menuconfig KCONFIG_CONFIG=config.sb2040
-#make -j4 KCONFIG_CONFIG=config.sb2040
-#python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u d063055012c2
+#echo "Start processing for the Fly-sht36..."
+make clean KCONFIG_CONFIG=config.sht36
+make menuconfig KCONFIG_CONFIG=config.sht36
+make -j4 KCONFIG_CONFIG=config.sht36
+python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 8237471f8baa
 
 echo "Starting Klipper..."
 sudo service klipper start
