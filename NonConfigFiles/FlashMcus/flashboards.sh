@@ -46,6 +46,6 @@ make menuconfig KCONFIG_CONFIG=config.sht36
 make -j4 KCONFIG_CONFIG=config.sht36
 python3 ~/CanBoot/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 8237471f8baa
 
-echo "Starting Klipper..."
-sudo service klipper start
-echo "Klipper has started"
+#echo "Starting Klipper..."
+#sudo service klipper start
+#echo "Klipper has started"
